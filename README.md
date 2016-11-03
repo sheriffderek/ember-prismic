@@ -1,10 +1,10 @@
-<<<<<<< 69a1b017c546ca3dc1803efc2b0f3d73c181a438
+
 # ember-prismic
 =======
 # Prismic
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+The app itself is acting as a README, so get ember up and running and it should tell it's own story.
 
 ## Prerequisites
 
@@ -54,4 +54,3 @@ Specify what it takes to deploy your app.
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
->>>>>>> Initial Commit from Ember CLI v2.9.0-beta.2
