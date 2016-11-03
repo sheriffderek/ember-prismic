@@ -1,0 +1,30 @@
+
+em {
+  color: teal;
+  font-style: normal;
+}
+
+i {
+  color: purple;
+  font-style: normal;
+}
+
+b {
+  color: red;
+  font-weight: normal;
+}
+
+ul li, ol li {
+  margin-bottom: .5rem;
+}
+
+.project-list {
+  border: 1px solid red;
+  padding: 1rem;
+  width: 80%;
+  max-width: 400px;
+}
+
+body {
+  padding-bottom: 5rem;
+}
