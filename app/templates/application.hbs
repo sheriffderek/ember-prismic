@@ -19,11 +19,16 @@
 
 <p>My first thoughts are that I need to find the api end point and work it into an adapter and see if I can access the data. If the data is not in the right shape, then I'll create a serializer to contort it into a json-api friendly shape. If all goes well, I can pass this off to prismic and they can officially create an addon for Ember.</p>
 
+<p>A staged version can be viewed here: <a href='prismic.surge.sh' target='surge'>prismic.surge.sh</a></p>
+
+<p>A github repo can be found here: <a href='https://github.com/sheriffderek/ember-prismic' target='github'>https://github.com/sheriffderek/ember-prismic</a></p>
+
 
 <h2>Steps</h2>
 
 <ol>
   <li>Find a generic root end-point: <a target='_blank' href='https://sheriffderek.prismic.io/api/documents'>https://sheriffderek.prismic.io/api/documents</a> ?</li>
+  <li>That URL gets a 404 because a trailing / gets added... : /</li>
   <li>
     See what can be pulled from the end-point with no SDK involvement.
     <ul>
