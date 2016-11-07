@@ -6,7 +6,7 @@ Trying to get Prismic and Ember-data working together.
 
 This README outlines the details of collaborating on this Ember application.
 The app itself is acting as a README, so get ember up and running and it should tell it's own story.
-If you don't want to bother setting up your own repo (it's really fast) - then you can view a staged version here at least to see errors etc. [http://prismic.surge.sh](http://prismic.surge.sh)
+If you don't want to bother setting up your own repo (it's really fast) - than you can view a staged version here at least to see errors etc. [http://prismic.surge.sh](http://prismic.surge.sh)
 
 ## Prerequisites
 
