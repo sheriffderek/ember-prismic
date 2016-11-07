@@ -6,7 +6,7 @@
 
 <p>Prismic is a cloud-based Content Management System with powerful control of fields and groups of fields that let you build unique content structures. Ember is my choice of JavaScript framework that has an official data persistence library called ember-data. Ember-data uses Adapters and Serializers to get data from the API into the local store so you can talk to it in "the ember-data way."</p>
 
-<p>I've been assured that Prismic will work with any front-end or back-end. It seems to be expecting node and express and has an SDK for you to download. It is suggested that you may also include that SDK as a dependency and things should ~work. The SDK seems very light - and more of an example of how Prismic may work with express. I'm wondering if it can be mostly skipped - or ported to work with ember's router within an ember addon.</p>
+<p>I've been assured that Prismic will work with any front-end or back-end. It seems to be expecting node and express and has an SDK for you to download. It is suggested that you may also include that SDK as a dependency and things should ~work. The SDK seems very light - and most of an example of how Prismic may work with express. I'm wondering if the SDK can be mostly skipped - or ported to work with ember's router within an ember addon.</p>
 
 
 <h2>Goals</h2>
@@ -19,7 +19,7 @@
 
 <p>My first thoughts are that I need to find the api end point and work it into an adapter and see if I can access the data. If the data is not in the right shape, then I'll create a serializer to contort it into a json-api friendly shape. If all goes well, I can pass this off to prismic and they can officially create an addon for Ember.</p>
 
-<p>A staged version can be viewed here: <a href='prismic.surge.sh' target='surge'>prismic.surge.sh</a></p>
+<p>A staged version can be viewed here: <a href='http://prismic.surge.sh' target='surge'>prismic.surge.sh</a></p>
 
 <p>A github repo can be found here: <a href='https://github.com/sheriffderek/ember-prismic' target='github'>https://github.com/sheriffderek/ember-prismic</a></p>
 
