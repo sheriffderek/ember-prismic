@@ -1,71 +1,24 @@
 
-<h1>ember-data + prismic tests</h1>
+<h1>ember-data + prismic.io tests</h1>
 
+<nav class="main-menu">
+  <ul class="menu">
+    <li>
+      {{#link-to 'landing.currently'}}
+        <span>Implementation</span>
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'example-single-page'}}
+        <span>"Single" page</span>
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'example-repeatable-page'}}
+        <span>"Repeatable page</span>
+      {{/link-to}}
+    </li>
+  </ul>
+</nav>
 
-<h2>Back story</h2>
-
-<p>Prismic is a cloud-based Content Management System with powerful control of fields and groups of fields that let you build unique content structures. Ember is my choice of JavaScript framework that has an official data persistence library called ember-data. Ember-data uses Adapters and Serializers to get data from the API into the local store so you can talk to it in "the ember-data way."</p>
-
-<p>I've been assured that Prismic will work with any front-end or back-end. It seems to be expecting node and express and has an SDK for you to download. It is suggested that you may also include that SDK as a dependency and things should ~work. The SDK seems very light - and most of an example of how Prismic may work with express. I'm wondering if the SDK can be mostly skipped - or ported to work with ember's router within an ember addon.</p>
-
-
-<h2>Goals</h2>
-
-<ol>
-  <li>
-    Use Prismic for our CMS with Ember and ember-data
-  </li>
-</ol>
-
-<p>My first thoughts are that I need to find the api end point and work it into an adapter and see if I can access the data. If the data is not in the right shape, then I'll create a serializer to contort it into a json-api friendly shape. If all goes well, I can pass this off to prismic and they can officially create an addon for Ember.</p>
-
-<p>A staged version can be viewed here: <a href='http://prismic.surge.sh' target='surge'>prismic.surge.sh</a></p>
-
-<p>A github repo can be found here: <a href='https://github.com/sheriffderek/ember-prismic' target='github'>https://github.com/sheriffderek/ember-prismic</a></p>
-
-
-<h2>Steps</h2>
-
-<ol>
-  <li>Find a generic root end-point: <a target='_blank' href='https://sheriffderek.prismic.io/api/documents'>https://sheriffderek.prismic.io/api/documents</a> ?</li>
-  <li>That URL gets a 404 because a trailing / gets added... : /</li>
-  <li>
-    See what can be pulled from the end-point with no SDK involvement.
-    <ul>
-      <li>Shows a page with the JSON, but not the raw that I expected.</li>
-    </ul>
-  </li>
-  <li>
-    Setup an adapter to see what we can get from that endpoint alone <em>your-repo-name.prismic.io</em> so, after looking in the SDK, it should be something like: <a target='_blank' href='https://sheriffderek.prismic.io/api'>https://sheriffderek.prismic.io/api</a>. This gets me somewhere, but if I refresh that page or basically, don't type it in by hand - I get a 404. (sent an email with screen shots).
-    <ul>
-      <li>Add host to ember adapter</li>
-      <li>Add namespace to ember adapter</li>
-      <li>After adding those - ember looks for <i>https://sheriffderek.prismic.io/api/documents/projects</i> which shows it's building the path as I would expect.</li>
-      <li>See <em>/adapters/application.js</em></li>
-      <li><b>Error: GET https://sheriffderek.prismic.io/api/documents/projects </b></li>
-      <li>This is probably not the correct uri - but it's my best guess right now.</li>
-      <li><b>Error: XMLHttpRequest cannot load https://sheriffderek.prismic.io/api/documents/projects. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:4200' is therefore not allowed access. The response had HTTP status code 404.</b></li>
-      <li>I usually run into CORS like this on any server and what to adjust is slightly different for each.</li>
-    </ul>
-  </li>
-  <li>When we can get some data returning - and see what shape it is in, then we can decide if it needs a serializer. <br><em>ember generate serializer application</em></li>
-  
-</ol>
-
-<h2>This should loop through 'projects' and display their "uid"</h2>
-
-<p>see <em>/routes/application.js</em></p>
-
-<h3>Project list</h3>
-
-<ul class='project-list'> {{!-- loops over the 'projects' that are retrieved in the routes/application.js --}}
-{{#each model as |project|}}
-  <li>
-    uid: {{project.uid}}
-  </li>
-{{/each}}
-</ul>
-
-<h2>Current state</h2>
-
-<p>?</p>
+{{outlet}}

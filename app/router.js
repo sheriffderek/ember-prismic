@@ -7,6 +7,14 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('landing', { path: '/' }, function() {
+    this.route('currently', { path: '/'} );
+  });
+  this.route('example-single-page');
+  this.route('example-repeatable-page', function() {
+    this.route('item-list', { path: '/' } );
+    this.route('repeatable-item');
+  });
 });
 
 export default Router;
