@@ -24,8 +24,9 @@
           <span>"Repeatable iterm page</span>
         {{/link-to}}
       </li>
-      <li>
-        Link to the 'projects' and various repeatable items directly</li>
+      <li>Link to the 'projects' and various repeatable items directly</li>
+      <li>Display the unique 'slices' and other data in a managable way</li>
+      <li>Sell ALL of our clients on prismic.io as the best CMS there is - so that we never have to install WordPress again</li>
     </ul>
   </li>
 </ol>
@@ -74,10 +75,13 @@
       <li>This is probably not the correct uri - but it's my best guess right now.</li>
       <li><b>Error: XMLHttpRequest cannot load https://sheriffderek.prismic.io/api/documents/projects. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:4200' is therefore not allowed access. The response had HTTP status code 404.</b></li>
       <li>I usually run into CORS like this on any server and what to adjust is slightly different for each.</li>
-      <li>I added a temporary kill-all ember-cli-cors addon to take care of that for now... but I'm still getting the error for the resource (this could be because the end-point aren't right)</li>
+      <li>I added a temporary kill-all ember-cli-cors addon to take care of that for now... but I'm still getting the error for the resource (this could be because the end-points aren't right)</li>
     </ul>
   </li>
   <li>When we can get some data returning - and see what shape it is in, then we can decide if it needs a serializer. <br><em>ember generate serializer application</em></li>
   <li>I've since built out some more routes to be very explicit in how I expect to use the API... see the other pages for details</li>
+  <li>I put another API in place as an example to compare prismic with / see {{#link-to 'other-api'}}
+    <span>/other-api</span>
+  {{/link-to}}</li>
 
 </ol>

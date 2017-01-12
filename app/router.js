@@ -15,7 +15,10 @@ Router.map(function() {
     this.route('item-list', { path: '/' } );
     this.route('repeatable-item');
   });
-  this.route('other-api');
+  this.route('other-api', function() {
+    this.route('post-list', { path: '/' } );
+    this.route('post', { path: '/:id' } );
+  });
 });
 
 export default Router;

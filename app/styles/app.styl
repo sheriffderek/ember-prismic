@@ -1,0 +1,63 @@
+
+// $colors
+$color = #ff0066
+$highlight = lightgreen
+$alternate = orange
+
+// $structure
+$pad = .5rem
+
+// $reset
+html
+  box-sizing: border-box
+  *, *:before, *:after
+    box-sizing: inherit
+
+body
+  margin: 0
+
+// $styles
+body
+  padding: 0 $pad*2 $pad*6
+
+pre
+  padding: $pad
+  background: gray
+  border-radius: 5px
+  overflow: scroll
+
+code
+  color: $highlight
+
+b, small
+  color: $color
+
+small
+  font-size: 14px
+
+.main-menu
+  .menu
+    list-style: none
+    margin: 0
+    padding: 0
+    li
+      display: inline-block
+      &:not(:last-of-type)
+        margin-right: $pad
+    a
+      color: $alternate
+  &:last-of-type
+    padding-top: $pad*10
+
+.post-list
+  list-style: none
+  margin: 0
+  padding: 0
+  .post
+    margin-bottom: $pad*2
+  .link
+    display: block
+    h3
+      margin: 0
+  h4
+    margin: 0

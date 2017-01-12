@@ -23,7 +23,9 @@ export default DS.JSONAPIAdapter.extend({
 });
 </code></pre>
 
-<p>This setups up the adapter application wide</p>
+<p>This setups up the adapter application wide... but what we really want is something specific to content 'type' like 'post' 'project' 'user' 'page' etc -> see 'other-api' example.</p>
+
+<p>Depending on the API payload, we may use one of many types of adapter: <a href="https://guides.emberjs.com/v2.10.0/models/customizing-adapters/">https://guides.emberjs.com/v2.10.0/models/customizing-adapters/</a> | <b>RESTAdapter</b> or <b>JSONAPIAdapter</b> are a few.</p>
 
 <p>Then, in the repeatable post route...</p>
 
