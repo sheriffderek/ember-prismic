@@ -1,0 +1,19 @@
+
+<h2>Using <b>https://jsonplaceholder.typicode.com/users</b></h2>
+
+<p>as an example of API consuption to compare prismic</p>
+
+<p>Should list 10 users below...</p>
+
+<ul class='user-list'>
+
+  {{#each model as |user|}}
+    <li>
+      <ul>
+        <li>user-name: {{user.username}}</li>
+        <li>full-name: {{user.name}}</li>
+      </ul>
+    </li>
+  {{/each}}
+
+</ul>

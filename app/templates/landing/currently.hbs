@@ -2,31 +2,61 @@
 
 <h2>Back story</h2>
 
-<p>Prismic is a cloud-based Content Management System with powerful control of fields and groups of fields that let you build unique content structures. Ember is my choice of JavaScript framework that has an official data persistence library called ember-data. Ember-data uses Adapters and Serializers to get data from the API into the local store so you can talk to it in "the ember-data way."</p>
+<p>Prismic is a cloud-based Content Management System with powerful control of fields and <em>groups of fields (slices)</em> that let you build unique content structures. Ember.js has an official data persistence library called ember-data. Ember-data uses Adapters and Serializers to get data from the API into the local store so you can talk to it in "the ember-data way."</p>
 
-<p>I've been assured that Prismic will work with any front-end or back-end. It seems to be expecting node and express and has an SDK for you to download. It is suggested that you may also include that SDK as a dependency and things should ~work. The SDK seems very light - and more of an example of how Prismic may work with express. I'm wondering if it can be mostly skipped - or ported to work with ember's router within an ember addon.</p>
+<p>I've been assured that Prismic will work with <em>any</em> front-end or back-end. It seems to be expecting node and express and has an SDK for you to download. It is suggested that you may also include that SDK as a dependency and things should ~work. The SDK seems very light - and more of an example of how Prismic may work with express. I'm wondering if it can be mostly skipped - or ported to work with ember's router within an ember addon.</p>
 
 
 <h2>Goals</h2>
 
-<ol>
+<ol class='goal-list'>
   <li>
-    Use Prismic for our CMS with Ember and ember-data
+    Use prismic.io for our CMS with Ember and ember-data
+    <ul>
+      <li>
+        Get 'single' page data:
+        {{#link-to 'example-single-page'}}
+          <span>"Single" page</span>
+        {{/link-to}}</li>
+      <li>
+        Get lists of 'repeatable' types:
+        {{#link-to 'example-repeatable-page'}}
+          <span>"Repeatable iterm page</span>
+        {{/link-to}}
+      </li>
+      <li>
+        Link to the 'projects' and various repeatable items directly</li>
+    </ul>
   </li>
 </ol>
 
-<p>My first thoughts are that I need to find the api end point and work it into an adapter and see if I can access the data. If the data is not in the right shape, then I'll create a serializer to contort it into a json-api friendly shape. If all goes well, I can pass this off to prismic and they can officially create an addon for Ember.</p>
+<p>My first thoughts are that I need to find the api end-point and work it into an adapter and see if I can access the data. If the data is not in the right shape, then I'll create a serializer to contort it into a json-api friendly shape. If all goes well, I can pass this off to prismic and they can officially create an addon for Ember.</p>
 
 <p>A staged version can be viewed here: <a href='prismic.surge.sh' target='surge'>prismic.surge.sh</a></p>
 
 <p>A github repo can be found here: <a href='https://github.com/sheriffderek/ember-prismic' target='github'>https://github.com/sheriffderek/ember-prismic</a></p>
 
+<p>The base endpoints are (for me) (as far as I can tell):</p>
 
-<h2>Steps</h2>
+<ul class="end-point-list">
+  <li>
+    <a href="https://sheriffderek.prismic.io/api" target='_prismic'>https://sheriffderek.prismic.io/api</a>
+  </li>
+  <li>
+    <a href="https://sheriffderek.cdn.prismic.io/api" target='_prismic'>https://sheriffderek.cdn.prismic.io/api</a>
+  </li>
+  <li>??? and I would expect something like this:</li>
+  <li>
+    <a href="https://sheriffderek.cdn.prismic.io/api/projects" target='_prismic'>https://sheriffderek.prismic.io/api/<b>projects</b></a>
+  </li>
+</ul>
+
+
+<h2>General steps so far</h2>
 
 <ol>
   <li>Find a generic root end-point: <a target='_blank' href='https://sheriffderek.prismic.io/api/documents'>https://sheriffderek.prismic.io/api/documents</a> ?</li>
-  <li>That URL gets a 404 because a trailing / gets added... : /</li>
+  <li>Visiting that URL in a browser gets a 404 because a trailing / gets added... depending on how it's accessed</li>
   <li>
     See what can be pulled from the end-point with no SDK involvement.
     <ul>
@@ -44,19 +74,10 @@
       <li>This is probably not the correct uri - but it's my best guess right now.</li>
       <li><b>Error: XMLHttpRequest cannot load https://sheriffderek.prismic.io/api/documents/projects. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:4200' is therefore not allowed access. The response had HTTP status code 404.</b></li>
       <li>I usually run into CORS like this on any server and what to adjust is slightly different for each.</li>
+      <li>I added a temporary kill-all ember-cli-cors addon to take care of that for now... but I'm still getting the error for the resource (this could be because the end-point aren't right)</li>
     </ul>
   </li>
   <li>When we can get some data returning - and see what shape it is in, then we can decide if it needs a serializer. <br><em>ember generate serializer application</em></li>
+  <li>I've since built out some more routes to be very explicit in how I expect to use the API... see the other pages for details</li>
 
 </ol>
-
-<h2>This should loop through 'projects' and display their "uid"</h2>
-
-<p>see <em>/routes/application.js</em></p>
-
-<h3>Project list</h3>
-
-
-<h2>Current state</h2>
-
-<p>?</p>

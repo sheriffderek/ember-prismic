@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('item-list', { path: '/' } );
     this.route('repeatable-item');
   });
+  this.route('other-api');
 });
 
 export default Router;

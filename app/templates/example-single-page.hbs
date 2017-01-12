@@ -2,3 +2,45 @@
 <h2>Example "Single" page</h2>
 
 <p>Should display 'single' content type data (just the title would be a start) of UID: <span>welcome</span></p>
+
+<hr>
+
+<p>First thing first... I'll need a model for 'page' or something.. but what? What are they called in prismic</p>
+
+<p>I would likely <b>return this.get('store').findAll(page);</b> to the model in an outer route such as the <b>application</b> route so that page data was loaded on landing. This way I could <b>peek</b> at the records and avoid an extra request and since they are pretty static)</p>
+
+<p>For this example though... I would want to keep it simple. I should be able to <b>return this.get('store').findRecord('id', params.id);</b> by it's id given a parameter on the link's click event.</p>
+
+<p>Either way... I'll need an adapter of some sort. It looks like this:</p>
+
+
+<i>/app/adapters/application</i>
+<pre><code>import DS from 'ember-data';
+
+export default DS.JSONAPIAdapter.extend({
+  host: 'https://sheriffderek.prismic.io',
+  namespace: 'api',
+});
+</code></pre>
+
+<p>This setups up the adapter application wide</p>
+
+<p>Then, in the repeatable post route...</p>
+
+<i>/app/routes/example-repeatable-page</i>
+<pre><code>import Ember from 'ember';
+
+export default Ember.Route.extend({
+
+  model() {
+    let projectData = this.get('store').findAll('project');
+
+    return projectData;
+  }
+
+});
+</code></pre>
+
+<p>Which should all comes together in an XHR request looking for: <b>https://sheriffderek.prismic.io/api/projects</b> - BUT that's not the right end-point anyway.</p>
+
+<p>ember-data expects an array of objects</p>
